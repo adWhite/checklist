@@ -1,0 +1,28 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<form method="POST" action="/login">
+  {{ form.hidden_tag() }}
+  <fieldset>
+    {{ form.email.label }} {{ form.email(size=120) }}
+  </fieldset>
+
+  <fieldset>
+    {{ form.password.label }} {{ form.password(size=120) }}
+  </fieldset>
+
+  <fieldset>
+    {% for error in form.recaptcha.errors %}
+      {{ error }}
+    {% endfor %}
+
+    {{ form.recaptcha }}
+  </fieldset>
+
+  <fieldset>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+{% endblock %}

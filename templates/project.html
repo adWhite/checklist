@@ -1,0 +1,30 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<h1 class="project-title" data-id="{{ id }}">{{ title }}</h1>
+<p>{{ author }}</p>
+
+{% for item in tasks %}
+<ul>
+  <li>
+  <span>{{ item.title }} </span>
+  <em>Created by: {{ item.author }} at {{ item.created_at }}</em>
+  </li>
+</ul>
+{% endfor %}
+
+<hr>
+
+<form class="add-task">
+  <input class="task-title" type="text" >
+  <input type="submit" value="add task">
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  var currentUser = "{{ current_user.username }}";
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="{{url_for('static', filename='js/add-task.js')}}"></script>
+{% endblock %}
