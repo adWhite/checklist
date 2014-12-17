@@ -7,7 +7,8 @@
     {% endblock %}
     <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    {# <link href="//cdn.jsdelivr.net/flat-ui/2.0/css/flat-ui.css" rel="stylesheet"> #}
+		<link href="{{ url_for('static', filename='css/vendor/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ url_for('static', filename='css/flat-ui.min.css') }}" rel="stylesheet">
     {% assets "scss_all" %}
     <link href="{{ ASSET_URL }}" rel=stylesheet >
     {% endassets %}
@@ -40,11 +41,13 @@
         <div class="row">
           {% with messages = get_flashed_messages() %}
             {% if messages %}
-              <ul class=flashes>
-              {% for message in messages %}
-                <li>{{ message }}</li>
-              {% endfor %}
-              </ul>
+							<div class="alert alert-danger">
+								<ul class=flashes>
+								{% for message in messages %}
+									<li>{{ message }}</li>
+								{% endfor %}
+								</ul>
+							</div> <!-- .alert .alert-danger -->
             {% endif %}
           {% endwith %}
         </div> <!-- .row -->

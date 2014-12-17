@@ -37,7 +37,7 @@ app.config.from_pyfile('config.cfg')
 # assets
 assets = Environment(app)
 assets.url = app.static_url_path
-scss = Bundle('scss/style.scss', 'scss/normalize.scss', filters='pyscss', output='css/style.css')
+scss = Bundle('scss/style.scss', filters='pyscss', output='css/style.css')
 assets.register('scss_all', scss)
 
 # mongo setup
@@ -103,14 +103,14 @@ class FormAddProject(Form):
 class FormLogin(Form):
     email = TextField('email', validators=[DataRequired(), Email()])
     password = PasswordField('password', validators=[DataRequired()])
-    recaptcha = RecaptchaField()
+    # recaptcha = RecaptchaField()
 
 
 class FormRegister(Form):
     username = TextField('username', validators=[DataRequired()])
     email = TextField('email', validators=[DataRequired(), Email()])
     password = PasswordField('password', validators=[DataRequired()])
-    recaptcha = RecaptchaField()
+    # recaptcha = RecaptchaField()
 
 
 # Creating a login manager instance
@@ -176,7 +176,7 @@ def register():
 def login():
     form = FormLogin()
     if current_user.is_authenticated():
-        return redirect(url_for('app'))
+        return redirect(url_for('index'))
     elif request.method == 'POST' and 'email' in request.form:
         email = request.form['email']
         password = request.form['password']

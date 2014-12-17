@@ -1,28 +1,35 @@
 {% extends "layout/base.html" %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
-<form method="POST" action="/login">
-  {{ form.hidden_tag() }}
-  <fieldset>
-    {{ form.email.label }} {{ form.email(size=120) }}
-  </fieldset>
+<div class="row">
+	<div class="col-xs-6">
+		<form class="login-form" method="POST" action="/login">
+			{{ form.hidden_tag() }}
+			<div class="form-group">
+				{{ form.email(size=120, class="form-control", placeholder="Email") }}
+			</div> <!-- .form-group -->
 
-  <fieldset>
-    {{ form.password.label }} {{ form.password(size=120) }}
-  </fieldset>
+			<div class="form-group">
+				{{ form.password(size=120, class="form-control", placeholder="Password") }}
+			</div> <!-- .form-group -->
 
-  <fieldset>
-    {% for error in form.recaptcha.errors %}
-      {{ error }}
-    {% endfor %}
+			{# <div class="form-group"> #}
+			{# 	{% for error in form.recaptcha.errors %} #}
+			{# 		{{ error }} #}
+			{# 	{% endfor %} #}
+      {#  #}
+			{# 	{{ form.recaptcha }} #}
+			{# </div> <!-- .form-group --> #}
 
-    {{ form.recaptcha }}
-  </fieldset>
+			<div class="form-group">
+				<input class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">
+			</div>
+		</form>
+	</div> <!-- .col-xs-3 -->
+</div> <!-- .row -->
 
-  <fieldset>
-    <input type="submit" value="Submit">
-  </fieldset>
-</form>
+<hr>
+
 {% endblock %}

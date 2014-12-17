@@ -2,13 +2,29 @@
 
 {% block content %}
 <h1 class="project-title" data-id="{{ id }}">{{ title }}</h1>
-<p>{{ author }}</p>
+<p>Project created by: <em>{{ author }}</em></p>
 
+<!--
+	Put the checkbox infront of the title, and put an additional checkbox if is already done
+	or only visible to revisers, I think it would be open.
+-->
 {% for item in tasks %}
 <ul>
   <li>
-  <span>{{ item.title }} </span>
-  <em>Created by: {{ item.author }} at {{ item.created_at }}</em>
+		<p><strong>{{ item.title }}</strong></p>
+
+		<p><em>Created by: {{ item.author }} at {{ item.created_at }}</em></p>
+
+		<!-- 
+			One someone check the input, cross the task and send a post request to save the same setting in the server, if it fail, return it to its past state and show an alert saying that something happened in the back-end
+		-->
+		<ul class="task-actions">
+			<!-- 
+				When someone complete or revise a task, it need to show the username of the person that did it and date
+			-->
+			<li class="task-action"><input class="task-action-completed" type="checkbox"> <label>Completed</label></li>
+			<li class="task-action"><input class="task-action-revised" type="checkbox"> <label>Revised</label></li>
+		</ul>
   </li>
 </ul>
 {% endfor %}
