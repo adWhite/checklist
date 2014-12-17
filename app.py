@@ -254,8 +254,9 @@ def project(id=id):
         project_id = current_project['_id']
         project_title = current_project['title']
         project_author = current_project['author']
+        project_date = current_project['created_at']
         tasks_list = tasks.find({'project_id':project_id})
-        return render_template('project.html', title=project_title, author=project_author, id=project_id, tasks=tasks_list)
+        return render_template('project.html', title=project_title, author=project_author, id=project_id, tasks=tasks_list, created_at=project_date)
     else:
         flash('Need to be logged in to view projects')
         return redirect(url_for('login'))

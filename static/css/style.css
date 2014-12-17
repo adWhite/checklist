@@ -5,7 +5,7 @@ body {
     margin: 0 auto;
     width: 55em; }
 
-    .unstyled-list, .project-list {
+    .unstyled-list, .project-list, .task-list, .task-actions {
       list-style: none;
       margin-left: 0;
       padding-left: 0; }
@@ -19,8 +19,31 @@ body {
             .project span:last-child {
               margin-right: 0; }
 
-.site-footer {
-  padding-top: 1em;
-  padding-bottom: 1em; }
-  .site-footer p {
-    margin: 0; }
+h2.project-title {
+  font-size: 1.618em; }
+
+  .project-meta {
+    color: #888;
+    font-size: 0.918em; }
+    .project-meta span {
+      margin-right: 1em; }
+
+.task-title {
+  display: block; }
+
+  .task-meta {
+    font-size: 0.816em;
+    color: #999; }
+
+    .task-action {
+      margin-right: 1em;
+      display: inline-block; }
+
+      .add-task-title {
+        margin-bottom: 0.618em; }
+
+        .site-footer {
+          padding-top: 1em;
+          padding-bottom: 1em; }
+          .site-footer p {
+            margin: 0; }

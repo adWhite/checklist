@@ -41,6 +41,53 @@ body {
 }
 
 /*
+ * Project 
+ */
+
+h2.project-title {
+	font-size: 1.618em;
+}
+
+.project-meta {
+	color: #888;
+	font-size: .918em;
+
+	span {
+		margin-right: 1em;
+	}
+}
+
+/*
+ * Tasks
+ */
+
+.task-list {
+	@extend .unstyled-list;
+}
+
+.task-title {
+	display: block;
+}
+
+.task-meta {
+	font-size: 0.816em;
+	color: #999;
+}
+
+.task-actions {
+	@extend .unstyled-list;
+}
+
+.task-action {
+	margin-right: 1em;
+	display: inline-block;
+}
+
+.add-task-title {
+	margin-bottom: 0.618em;
+}
+
+/*
  * Footer 
  */
 

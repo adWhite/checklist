@@ -1,19 +1,24 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-<h1 class="project-title" data-id="{{ id }}">{{ title }}</h1>
-<p>Project created by: <em>{{ author }}</em></p>
+<h2 class="project-title" data-id="{{ id }}">{{ title }}</h2>
+<p class="project-meta">
+	<span class="project-meta-user"><i class="fui-user"></i> <em>{{ author }} </em></span>
+	<span class="project-meta-date"><i class="fui-calendar"></i> <em>{{ created_at }} </em></span>
+</p>
+
+<hr>
 
 <!--
 	Put the checkbox infront of the title, and put an additional checkbox if is already done
 	or only visible to revisers, I think it would be open.
 -->
 {% for item in tasks %}
-<ul>
-  <li>
-		<p><strong>{{ item.title }}</strong></p>
+<ul class="task-list">
+  <li class="task">
+		<span class="task-title"><strong>{{ item.title }}</strong></span>
 
-		<p><em>Created by: {{ item.author }} at {{ item.created_at }}</em></p>
+		<span class="task-meta"><em>Created by: {{ item.author }} at {{ item.created_at }}</em></span>
 
 		<!-- 
 			One someone check the input, cross the task and send a post request to save the same setting in the server, if it fail, return it to its past state and show an alert saying that something happened in the back-end
@@ -22,8 +27,19 @@
 			<!-- 
 				When someone complete or revise a task, it need to show the username of the person that did it and date
 			-->
-			<li class="task-action"><input class="task-action-completed" type="checkbox"> <label>Completed</label></li>
-			<li class="task-action"><input class="task-action-revised" type="checkbox"> <label>Revised</label></li>
+			<li class="task-action">
+				<label class="checkbox" for="completed">
+					<input type="checkbox" value="" id="completed" data-toggle="checkbox" class="custom-checkbox"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+				Completed	
+				</label>
+			</li>
+			<li class="task-action">
+				<label class="checkbox" for="revised">
+					<input type="checkbox" value="" id="revised" data-toggle="checkbox" class="custom-checkbox"><span class="icons"><span class="icon-unchecked"></span><span class="icon-checked"></span></span>
+				Revised	
+				</label>
+			</li>
+
 		</ul>
   </li>
 </ul>
@@ -31,10 +47,14 @@
 
 <hr>
 
-<form class="add-task">
-  <input class="task-title" type="text" >
-  <input type="submit" value="add task">
-</form>
+<div class="row">
+	<div class="col-xs-6">
+		<form class="add-task form-group">
+			<input class="add-task-title form-control" type="text" >
+			<input class="add-task-submit btn btn-md btn-inverse" type="submit" value="Add task">
+		</form>
+	</div> <!-- .col-xs-6 -->
+</div> <!-- .row -->
 {% endblock %}
 
 {% block scripts %}
@@ -42,5 +62,5 @@
   var currentUser = "{{ current_user.username }}";
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="{{url_for('static', filename='js/add-task.js')}}"></script>
+<script src="{{url_for('static', filename='js/project.js')}}"></script>
 {% endblock %}
