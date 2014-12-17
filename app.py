@@ -147,7 +147,10 @@ def get_new_id(model):
 # routes 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if current_user.is_authenticated():
+        return redirect(url_for('all_projects'))
+    else:
+        return render_template('index.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

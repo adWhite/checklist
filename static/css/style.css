@@ -1,3 +1,26 @@
-.container {
-  margin: 0 auto;
-  width: 45em; }
+body {
+  font-size: 18px; }
+
+  .container {
+    margin: 0 auto;
+    width: 55em; }
+
+    .unstyled-list, .project-list {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0; }
+
+      .project {
+        margin-bottom: 0.618em; }
+        .project .project-title {
+          display: block; }
+          .project span {
+            margin-right: 1em; }
+            .project span:last-child {
+              margin-right: 0; }
+
+.site-footer {
+  padding-top: 1em;
+  padding-bottom: 1em; }
+  .site-footer p {
+    margin: 0; }

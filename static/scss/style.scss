@@ -1,6 +1,52 @@
 // @import "normalize";
 
+/*
+ * Layout 
+ */
+
+body {
+	font-size: 18px;
+}
+
 .container {
   margin: 0 auto;
-  width: 45em;
+  width: 55em;
+}
+
+.unstyled-list {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+/*
+ * Projects 
+ */
+
+.project-list {
+	@extend .unstyled-list;
+}
+
+.project {
+	margin-bottom: 0.618em;
+
+	.project-title {
+		display: block;
+	}
+
+	span {
+		margin-right: 1em;
+		&:last-child { margin-right: 0; }
+	}
+}
+
+/*
+ * Footer 
+ */
+
+.site-footer {
+	padding-top: 1em;
+	padding-bottom: 1em;
+
+	p { margin: 0; }
 }

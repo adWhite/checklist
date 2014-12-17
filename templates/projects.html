@@ -3,16 +3,16 @@
 {% block title %}Projects{% endblock %}
 
 {% block content %}
-<a href="/projects/add">Add a new project</a>
+<a class="btn btn-lg btn-primary" href="/projects/add"><i class="fui-plus"></i> Add a new project</a>
 <hr>
 
-<ul>
+<ul class="project-list">
   {% for item in project_list %}
-  <li>
-    <a href="/project/{{ item._id }}">{{ item.title }}</a>
-    <p><strong>Created at:</strong> {{ item.created_at }}</p>
-    <p><strong>Author:</strong> {{ item.author }}</p>
+  <li class="project">
+		<span class="project-title"><a href="/project/{{ item._id }}"><strong>{{ item.title }}</strong></a></span>
+		<span class="project-date"><i class="fui-calendar"></i> {{ item.created_at }}</span>
+		<span class="project-author"><i class="fui-user"></i> {{ item.author }}</span>
   </li>
   {% endfor %}
-</ul>
+</ul> <!-- .project-list -->
 {% endblock %}

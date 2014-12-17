@@ -15,25 +15,47 @@
   </head>
   <body>
     <header>
-    <div class="container">
-      <div class="row">
-        <h1><i class="fa fa-rocket"></i> Checklist</h1>
-        <p><em>Pastebin for frontend developers</em></p>
-      </div> <!-- .row -->
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<nav class="main-nav navbar navbar-inverse navbar-embossed" role="navigation">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-01"><spann class="sr-only">Toggle navigation</span></button>
+								<a class="navbar-brand" href="/"><i class="fa fa-rocket"></i> adWhite PM</a>
+							</div> <!-- .navbar-header -->
+							<div class="navbar-collapse collapse" id="navbar-collapse-01">
+								<ul class="main-nav-list nav navbar-nav navbar-left">
+									<li class="main-nav-el"><a href="/">Home</a></li>
+									<li class="main-nav-el dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects <b class="caret"></b></a>
+										<span class="dropdown-arrow"></span>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="/projects">See All Projects</a>
+												<a href="/projects/add">New Project</a>
+											</li>
+										</ul>
+									</li>
+									<li class="main-nav-el"><a href="/login">Login</a></li>
+									<li class="main-nav-el"><a href="/register">Register</a></li>
+									<li class="main-nav-el"><a href="/logout">Log out</a></li>
+								</ul>
 
-      <div class="row">
-        <nav class="main-nav">
-          <ul class="main-nav-list">
-            <li class="main-nav-el"><a href="/">new</a></li>
-            <li class="main-nav-el"><a href="/login">Login</a></li>
-            <li class="main-nav-el"><a href="/register">Register</a></li>
-            <li class="main-nav-el"><a href="/logout">Log out</a></li>
-            <li class="main-nav-el"><a href="/projects">Projects</a></li>
-            <li class="main-nav-el"><a href="/projects/add">New Project</a></li>
-          </ul>
-        </nav>
-      </div> <!-- .row -->
-    </div> <!-- .container -->
+								<form class="navbar-form navbar-right" action="#" role="search">
+									<div class="form-group">
+										<div class="input-group">
+											<input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+											<span class="input-group-btn">
+												<button type="submit" class="btn"><span class="fui-search"></span></button>
+											</span>
+										</div> <!-- .input-group -->
+									</div> <!-- .form-group -->
+								</form> <!-- .navbar-form -->
+							</div> <!-- .navbar-collapse -->
+						</nav>
+					</div> <!-- .col-xs-12 -->
+				</div> <!-- .row -->
+			</div> <!-- .container -->
     </header>
 
     <div class="app">
@@ -58,13 +80,15 @@
     </div> <!-- .app -->
 
     <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <p>Project by <a href="http://twitter.com/thinkxl">@thinkxl</a></p>
-      </div> <!-- .row -->
-    </div> <!-- .container -->
+			<div class="container">
+				<div class="row">
+					<p>Project by <a href="http://twitter.com/thinkxl">@thinkxl</a></p>
+				</div> <!-- .row -->
+			</div> <!-- .container -->
     </footer> <!-- .site-footer -->
   </div> <!-- .container -->
+	<script src="{{ url_for('static', filename="js/vendor/jquery.min.js")}}"></script>
+	<script src="{{ url_for('static', filename="js/flat-ui.min.js")}}"></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>
