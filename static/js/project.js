@@ -7,7 +7,7 @@
     e.preventDefault(); 
 
     var $this = $(this),
-      taskTitle = $this.find('.task-title').val();
+      taskTitle = $this.find('.add-task-title').val();
 
     if (taskTitle) {
       $.ajax({
